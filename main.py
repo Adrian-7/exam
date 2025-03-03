@@ -291,11 +291,14 @@ for reg in regs:
 # Crearea unui DataFrame cu rezultatele
 final = pd.DataFrame({"name": model_name, "mae": model_mae, "r2": model_r2, "mse": model_mse})
 
+#Crearea unui DataFrame cu rezultatele
+final = pd.DataFrame({"name": model_name, "mae": model_mae, "r2": model_r2, "mse": model_mse})
+
 # Sortare după MAE
 final.sort_values(by = "mae", inplace = True)
 
 # Afișare tabel
-print(final)
+st.write(final)
 
 # Antrenarea și evaluarea modelului LinearRegression pe setul de test
 model = LinearRegression()
@@ -306,11 +309,6 @@ y_pred = model.predict(X_test)
 test_mae = mae(y_test, y_pred)
 test_r2 = r2_score(y_test, y_pred)
 test_mse = mse(y_test, y_pred)
-
-# Afișare rezultate pentru modelul de test
-st.write(f"Test MAE: {test_mae}")
-st.write(f"Test R²: {test_r2}")
-st.write(f"Test MSE: {test_mse}")
 
 
 
